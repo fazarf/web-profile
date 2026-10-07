@@ -1,0 +1,823 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #07070a;
+    --card: rgba(18, 16, 23, 0.72);
+    --border: rgba(255, 255, 255, 0.09);
+    --text: #f5f2f7;
+    --muted: #96919d;
+    --purple: #9b5de5;
+}
+
+body {
+    min-height: 100vh;
+
+    color: var(--text);
+
+    font-family: Arial, sans-serif;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    padding: 30px;
+
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 50% -10%,
+            rgba(125, 55, 170, 0.28),
+            transparent 40%
+        ),
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(70, 30, 100, 0.12),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #050507 0%,
+            #0b090e 50%,
+            #050507 100%
+        );
+
+    position: relative;
+}
+
+
+/* =========================
+   BACKGROUND ATMOSPHERE
+   ========================= */
+
+body::before {
+    content: "";
+
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background:
+        linear-gradient(
+            rgba(255, 255, 255, 0.015) 1px,
+            transparent 1px
+        );
+
+    background-size: 100% 4px;
+
+    opacity: 0.15;
+}
+
+
+/* =========================
+   PROFILE
+   ========================= */
+
+.profile {
+    width: 100%;
+    max-width: 460px;
+
+    text-align: center;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================
+   AVATAR
+   ========================= */
+
+.avatar {
+    width: 120px;
+    height: 120px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #21152b,
+            #0c0a0f
+        );
+
+    border: 1px solid rgba(190, 120, 230, 0.25);
+
+    box-shadow:
+        0 0 25px rgba(150, 70, 190, 0.18),
+        inset 0 0 25px rgba(255, 255, 255, 0.03);
+
+    font-size: 28px;
+    font-weight: bold;
+
+    letter-spacing: 3px;
+
+    transition: 0.4s ease;
+}
+
+.avatar:hover {
+    transform: scale(1.05);
+
+    box-shadow:
+        0 0 40px rgba(160, 80, 210, 0.35),
+        inset 0 0 25px rgba(255, 255, 255, 0.05);
+}
+
+
+/* =========================
+   NAME
+   ========================= */
+
+h1 {
+    font-size: 34px;
+
+    letter-spacing: 8px;
+
+    margin-bottom: 12px;
+
+    font-weight: 600;
+
+    text-shadow:
+        0 0 20px rgba(180, 120, 220, 0.15);
+}
+
+
+/* =========================
+   BIO
+   ========================= */
+
+.bio {
+    color: var(--muted);
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    margin-bottom: 32px;
+
+    max-width: 360px;
+
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================
+   LINKS
+   ========================= */
+
+.links {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.link-card {
+    display: block;
+
+    position: relative;
+
+    padding: 16px 20px;
+
+    text-decoration: none;
+
+    color: var(--text);
+
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    backdrop-filter: blur(12px);
+
+    transition:
+        transform 0.25s ease,
+        border-color 0.25s ease,
+        background 0.25s ease,
+        box-shadow 0.25s ease;
+}
+
+.link-card:hover {
+    transform: translateY(-3px);
+
+    background: rgba(35, 28, 42, 0.8);
+
+    border-color: rgba(160, 90, 210, 0.35);
+
+    box-shadow:
+        0 10px 30px rgba(70, 30, 100, 0.18);
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+    margin-top: 38px;
+
+    font-size: 11px;
+
+    color: #55505a;
+
+    letter-spacing: 5px;
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 20px;
+    }
+
+    .profile {
+        max-width: 380px;
+    }
+
+    .avatar {
+        width: 105px;
+        height: 105px;
+    }
+
+    h1 {
+        font-size: 28px;
+
+        letter-spacing: 6px;
+    }
+
+}
+
+
+/* =========================
+   ANIME PARTICLES
+   ========================= */
+
+.particle {
+    position: fixed;
+
+    width: 2px;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: rgba(220, 190, 255, 0.8);
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation:
+        particleFloat
+        linear infinite;
+}
+
+@keyframes particleFloat {
+
+    0% {
+        transform:
+            translateY(20px)
+            scale(0.7);
+
+        opacity: 0;
+    }
+
+    20% {
+        opacity: 0.6;
+    }
+
+    50% {
+        transform:
+            translateY(-20px)
+            scale(1);
+    }
+
+    80% {
+        opacity: 0.4;
+    }
+
+    100% {
+        transform:
+            translateY(-50px)
+            scale(0.6);
+
+        opacity: 0;
+    }
+}
+
+
+/* =========================
+   MOON
+   ========================= */
+
+body::after {
+    content: "";
+
+    position: fixed;
+
+    width: 260px;
+    height: 260px;
+
+    top: 8%;
+    right: 8%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 35%,
+            rgba(255, 255, 255, 0.18),
+            rgba(170, 130, 200, 0.08) 45%,
+            transparent 70%
+        );
+
+    box-shadow:
+        0 0 80px rgba(180, 130, 220, 0.08);
+
+    filter: blur(1px);
+
+    opacity: 0.65;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+.moon {
+    position: fixed;
+
+    width: 260px;
+    height: 260px;
+
+    top: 8%;
+    right: 8%;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 30% 30%,
+            rgba(255, 255, 255, 0.18),
+            transparent 8%
+        ),
+        radial-gradient(
+            circle at 65% 40%,
+            rgba(80, 60, 90, 0.12),
+            transparent 10%
+        ),
+        radial-gradient(
+            circle at 45% 70%,
+            rgba(80, 60, 90, 0.10),
+            transparent 12%
+        ),
+        radial-gradient(
+            circle,
+            rgba(220, 200, 230, 0.12),
+            rgba(120, 90, 140, 0.05) 55%,
+            transparent 72%
+        );
+
+    box-shadow:
+        0 0 80px rgba(180, 130, 220, 0.08);
+
+    opacity: 0.65;
+
+    pointer-events: none;
+
+    z-index: 0;
+}
+
+
+/* =========================
+   AVATAR IDENTITY
+   ========================= */
+
+.avatar {
+    position: relative;
+
+    width: 120px;
+    height: 120px;
+
+    margin: 0 auto 22px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(150, 90, 210, 0.2),
+            transparent 48%
+        ),
+        #0b090e;
+
+    border: 1px solid rgba(190, 120, 230, 0.3);
+
+    box-shadow:
+        0 0 25px rgba(150, 70, 190, 0.18),
+        0 0 70px rgba(100, 50, 140, 0.08),
+        inset 0 0 25px rgba(255, 255, 255, 0.03);
+
+    transition:
+        transform 0.4s ease,
+        box-shadow 0.4s ease;
+}
+
+/* Cahaya tipis yang berputar di pinggir avatar */
+
+.avatar::before {
+    content: "";
+
+    position: absolute;
+
+    inset: -40%;
+
+    background:
+        conic-gradient(
+            from 0deg,
+            transparent 0deg,
+            rgba(190, 120, 240, 0.315) 80deg,
+            transparent 140deg,
+            transparent 250deg,
+            rgba(130, 90, 210, 0.18) 310deg,
+            transparent 360deg
+        );
+
+    animation: avatarLight 10s linear infinite;
+
+    z-index: 0;
+}
+
+/* Lapisan gelap di atas cahaya */
+
+.avatar::after {
+    content: "";
+
+    position: absolute;
+
+    inset: 2px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 50% 30%,
+            rgba(180, 120, 230, 0.12),
+            transparent 45%
+        ),
+        rgba(8, 7, 11, 0.15);
+
+    z-index: 1;
+
+    pointer-events: none;
+}
+
+.avatar:hover {
+    transform: scale(1.04);
+
+    box-shadow:
+        0 0 35px rgba(150, 70, 190, 0.3),
+        0 0 90px rgba(100, 50, 140, 0.12),
+        inset 0 0 30px rgba(255, 255, 255, 0.04);
+}
+
+@keyframes avatarLight {
+
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+
+}
+
+.avatar span {
+    position: relative;
+
+    z-index: 2;
+
+    font-size: 27px;
+
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    color: #eee;
+
+    text-shadow:
+        0 0 15px rgba(210, 170, 255, 0.25);
+}
+
+/* =========================
+   LINK DETAILS
+   ========================= */
+
+.link-card {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    text-align: left;
+
+    padding: 16px 20px;
+}
+
+.link-name {
+    font-size: 14px;
+
+    letter-spacing: 0.5px;
+}
+
+.link-arrow {
+    color: #777;
+
+    font-size: 16px;
+
+    transition: 0.25s ease;
+}
+
+.link-card:hover .link-arrow {
+    color: #c28aff;
+
+    transform: translate(3px, -3px);
+}
+
+
+/* =========================
+   SOCIAL ICONS
+   ========================= */
+
+.link-left {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+}
+
+.link-left i {
+    width: 20px;
+
+    text-align: center;
+
+    font-size: 16px;
+
+    color: #aaa;
+
+    transition: 0.25s ease;
+}
+
+.link-card:hover .link-left i {
+    color: #c28aff;
+
+    transform: scale(1.1);
+}
+
+
+/* =========================
+   MUSIC BUTTON
+========================= */
+
+.music-toggle {
+    position: fixed;
+
+    top: 24px;
+    right: 24px;
+
+    width: 42px;
+    height: 42px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+
+    background: rgba(18, 16, 23, 0.65);
+
+    border: 1px solid rgba(190, 120, 230, 0.18);
+
+    color: #aaa;
+
+    backdrop-filter: blur(12px);
+
+    cursor: pointer;
+
+    z-index: 9999;
+
+    transition:
+        transform 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.music-toggle:hover {
+    color: #d5a5ff;
+
+    border-color: rgba(190, 120, 230, 0.4);
+
+    box-shadow:
+        0 0 20px rgba(150, 70, 190, 0.2);
+
+    transform: scale(1.05);
+}
+
+.music-toggle.playing {
+    color: #c28aff;
+
+    border-color: rgba(190, 120, 230, 0.45);
+
+    box-shadow:
+        0 0 18px rgba(150, 70, 190, 0.25);
+}
+
+.music-toggle.playing i {
+    animation: musicPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes musicPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+}
+
+
+/* =========================
+   AVATAR IMAGE
+========================= */
+
+.avatar img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 26%;
+
+    display: block;
+
+    position: relative;
+
+    z-index: 2;
+
+    transition: transform 0.5s ease;
+}
+
+.avatar:hover img {
+    transform: scale(1.05);
+}
+
+
+/* =========================
+   ENTRANCE ANIMATION
+========================= */
+
+.profile {
+    animation: profileEnter 1s ease-out both;
+}
+
+@keyframes profileEnter {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    animation: contentEnter 0.8s ease-out 0.25s both;
+}
+
+.bio {
+    animation: contentEnter 0.8s ease-out 0.35s both;
+}
+
+.links {
+    animation: contentEnter 0.8s ease-out 0.45s both;
+}
+
+footer {
+    animation: contentEnter 0.8s ease-out 0.6s both;
+}
+
+@keyframes contentEnter {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* =========================
+   MOBILE POLISH
+========================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 24px 18px;
+    }
+
+    .profile {
+        max-width: 100%;
+    }
+
+    .avatar {
+        width: 105px;
+        height: 105px;
+    }
+
+    .music-toggle {
+        top: 16px;
+        right: 16px;
+
+        width: 40px;
+        height: 40px;
+    }
+
+    h1 {
+        font-size: 28px;
+        letter-spacing: 6px;
+    }
+
+    .bio {
+        font-size: 13px;
+        max-width: 320px;
+        margin-bottom: 28px;
+    }
+
+    .links {
+        gap: 10px;
+    }
+
+    .link-card {
+        padding: 15px 17px;
+    }
+
+    .moon {
+        width: 190px;
+        height: 190px;
+
+        top: 5%;
+        right: -65px;
+
+        opacity: 0.45;
+    }
+
+    body::after {
+        width: 190px;
+        height: 190px;
+
+        top: 5%;
+        right: -65px;
+
+        opacity: 0.45;
+    }
+
+    footer {
+        margin-top: 30px;
+    }
+}

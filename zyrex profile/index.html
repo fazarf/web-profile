@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="ZY — Wandering somewhere between reality and imagination.">
+
+    <meta property="og:title" content="ZY — Profile">
+    <meta property="og:description" content="Wandering somewhere between reality and imagination.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="ayanokoji.png">
+
+    <title>ZY — Profile</title>
+
+    <link rel="icon" type="image/png" href="ayanokoji.png">
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+</head>
+
+<body>
+
+    <div class="moon"></div>
+
+    <button id="music-toggle" class="music-toggle" aria-label="Play ambient music">
+        <i class="fa-solid fa-music"></i>
+    </button>
+
+    <main class="profile">
+
+        <!-- Avatar -->
+        <div class="avatar">
+            <div class="avatar-glow"></div>
+
+            <img src="ayanokoji.png" alt="Ayanokoji Kiyotaka">
+        </div>
+
+        <!-- Nama -->
+        <h1>zyrex</h1>
+
+        <!-- Bio -->
+        <p class="bio">
+            Wandering somewhere between reality and imagination.
+        </p>
+
+        <!-- Social Links -->
+        <div class="links">
+
+        <a href="https://discord.gg/UTc3HfHp2k"
+            class="link-card"
+            target="_blank"
+            rel="noopener noreferrer">
+
+        <div class="link-left">
+            <i class="fa-brands fa-discord"></i>
+            <span class="link-name">Discord</span>
+        </div>
+
+        <span class="link-arrow">↗</span>
+        </a>
+
+
+        <a href="https://www.tiktok.com/@zyrex.r16"
+            class="link-card"
+            target="_blank"
+            rel="noopener noreferrer">
+
+        <div class="link-left">
+            <i class="fa-brands fa-tiktok"></i>
+            <span class="link-name">TikTok</span>
+        </div>
+
+        <span class="link-arrow">↗</span>
+        </a>
+
+
+        <a href="https://www.instagram.com/aza_rnaz"
+            class="link-card"
+            target="_blank"
+            rel="noopener noreferrer">
+
+        <div class="link-left">
+            <i class="fa-brands fa-instagram"></i>
+            <span class="link-name">Instagram</span>
+        </div>
+
+        <span class="link-arrow">↗</span>
+        </a>
+
+
+        <a href="https://saweria.co/zyrexR"
+            class="link-card"
+            target="_blank"
+            rel="noopener noreferrer">
+
+        <div class="link-left">
+            <i class="fa-solid fa-heart"></i>
+            <span class="link-name">Saweria</span>
+        </div>
+
+        <span class="link-arrow">↗</span>
+        </a>
+
+        </div>
+
+        <footer>
+            ✦ ZYREX ✦
+        </footer>
+
+    </main>
+
+    <audio id="ambient-music" loop>
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+
+    
+    <script src="script.js"></script>
+
+</body>
+</html>
